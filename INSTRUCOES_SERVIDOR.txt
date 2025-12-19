@@ -1,0 +1,47 @@
+# PASSO A PASSO: Como colocar o Cobra Enhance no seu Servidor
+
+Você não precisa contratar nada novo. Vamos colocar este site rodando "ao lado" do seu outro sistema, mas usando uma porta diferente (3010).
+
+---
+
+### PASSO 1: Preparar os arquivos (No seu computador)
+1. Pegue a pasta inteira deste projeto (`lunar-perigee`).
+2. **Importante:** Você NÃO precisa copiar a pasta `node_modules` nem a `.next`. Elas são pesadas e inúteis para o servidor.
+3. Copie apenas estas pastas/arquivos essenciais:
+   - `src/` (Todo o código)
+   - `public/` (Imagens e ícones)
+   - `Dockerfile`
+   - `docker-compose.yml`
+   - `package.json` e `package-lock.json`
+   - `next.config.ts` (ou .js)
+   - `tsconfig.json`
+
+### PASSO 2: Enviar para o Servidor
+1. Abra seu programa de envio de arquivos (como **FileZilla**).
+2. Conecte no seu servidor da Digital Ocean.
+3. Crie uma pasta nova lá, por exemplo chame de: `/cobra-app`
+4. Arraste os arquivos listados acima para dentro dessa pasta `/cobra-app`.
+
+### PASSO 3: Ligar o Sistema (No terminal do servidor)
+1. Acesse o terminal do seu servidor (SSH).
+2. Entre na pasta que você criou:
+   ```bash
+   cd /cobra-app
+   ```
+
+3. Defina a chave da API (copie e cole esse comando inteiro):
+   ```bash
+   export REPLICATE_API_TOKEN=r8_A7Bg4F0kY9bBIPDuGVQpFmLb6Z4ulGk0cpB7h
+   ```
+
+4. Ligue o sistema com o Docker:
+   ```bash
+   docker-compose up -d --build
+   ```
+
+### 🏁 FIM!
+O sistema vai baixar, instalar e rodar.
+Para acessar, use o IP do seu servidor seguido da porta 3010:
+👉 `http://SEU_IP_AQUI:3010`
+
+(O seu outro sistema continua funcionando normalmente na porta dele).

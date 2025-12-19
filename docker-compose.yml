@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    container_name: 8k-enhance
+    ports:
+      - "3010:3000"
+    environment:
+      - NODE_ENV=production
+      - REPLICATE_API_TOKEN=${REPLICATE_API_TOKEN}
+    restart: unless-stopped

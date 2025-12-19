@@ -1,0 +1,130 @@
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-bottom: 4rem;
+}
+
+.glassPanel {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+.heroHeader {
+    text-align: center;
+    margin: 4rem 0 2rem;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+    /* Glow effect */
+    text-shadow: 0 0 40px rgba(209, 244, 12, 0.3);
+}
+
+.subtitle {
+    color: #a1a1aa;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.sectionTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.primaryButton {
+    background: var(--primary);
+    color: var(--primary-text);
+    /* Black text on neon green */
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 20px -5px var(--primary-glow);
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.primaryButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px -10px var(--primary-glow);
+    filter: brightness(1.1);
+}
+
+.primaryButton:disabled {
+    background: #333;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.loader {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.statusText {
+    text-align: center;
+    color: #888;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}

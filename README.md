@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 8K Enhance
 
-## Getting Started
+Uma aplicação web moderna para **Upscale de Imagens com IA**, permitindo exportar em resoluções **2K, 4K e 8K**.
+Focada em uma interface premium, minimalista e fácil de usar.
 
-First, run the development server:
+## 🚀 Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Upload Drag & Drop**: Suporte a JPG, PNG e WebP.
+- **Múltiplas Resoluções**: Escolha entre 2K (QHD), 4K (UHD) e 8K (Ultra).
+- **Opções Avançadas**: Controle de nitidez, redução de ruído e textura.
+- **Preview Interativo**: Comparação "Antes e Depois" com slider.
+- **Processamento no Backend**: Validação de arquivos e redimensionamento inteligente.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Como Rodar Localmente
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone e Instale**
+   ```bash
+   git clone <repo>
+   cd 8k-enhance
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Inicie o Servidor**
+   ```bash
+   npm run dev
+   ```
+   Acesse: [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+## ☁️ Configuração de IA (Upscaling Real)
 
-To learn more about Next.js, take a look at the following resources:
+Por padrão, este projeto roda em **Modo de Demonstração**, usando o algoritmo **Lanczos3 (High Quality)** via `sharp` para simular o upscale e permitir testes imediatos da interface.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para usar um modelo de **Deep Learning (Real-ESRGAN, Stable Diffusion Upscale)**:
+1. Edite `src/app/api/upscale/route.ts`.
+2. Substitua o bloco "MOCK / FALLBACK" por uma chamada à API de sua preferência (ex: Replicate, DeepAI, Stability).
+3. Adicione sua chave em `.env.local`:
+   ```bash
+   AI_API_KEY=sua_chave_aqui
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Deploy com Docker
 
-## Deploy on Vercel
+1. **Build e Run**
+   ```bash
+   docker-compose up --build
+   ```
+2. A aplicação rodará na porta `3000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔒 Limites e Segurança
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Tamanho Máximo**: 25MB por arquivo.
+- **Tipos Permitidos**: Imagens (raster) apenas. SVGs são bloqueados.
+- **Sanitização**: Metadados são removidos durante o processamento (via Sharp) para privacidade.
+
+---
+Desenvolvido com **Next.js 14**, **React**, **TypeScript** e **CSS Modules**.
