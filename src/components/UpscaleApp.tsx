@@ -13,7 +13,7 @@ export default function UpscaleApp() {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [options, setOptions] = useState<UpscaleOptions>({
         resolution: '4k',
-        enhanceTexture: true,
+        enhanceTexture: false, // Default off to preserve artistic details
         noiseReduction: 30,
         sharpness: 20,
         removeArtifacts: true

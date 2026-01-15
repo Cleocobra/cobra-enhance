@@ -28,9 +28,9 @@ export function OptionsAccordion({ options, onChange }: Props) {
 
             {isOpen && (
                 <div className={styles.content}>
-                    {/* Toggle: Preservar Textura */}
+                    {/* Toggle: Recriar Rostos */}
                     <div className={styles.toggleRow} onClick={() => update('enhanceTexture', !options.enhanceTexture)}>
-                        <span>Preservar Textura</span>
+                        <span>Recriar Rostos (IA)</span>
                         <div className={clsx(styles.switch, options.enhanceTexture && styles.active)}>
                             <div className={styles.knob} />
                         </div>
