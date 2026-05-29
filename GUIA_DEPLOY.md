@@ -20,7 +20,7 @@ Execute o comando mágico (substituindo o token pelo seu):
 
 ```bash
 # Define sua chave (só precisa fazer uma vez)
-export REPLICATE_API_TOKEN=r8_A7Bg4F0kY9bBIPDuGVQpFmLb6Z4ulGk0cpB7h
+export REPLICATE_API_TOKEN=SEU_TOKEN_REPLICATE_AQUI
 
 # Sobe o servidor na porta 3010
 docker-compose up -d --build

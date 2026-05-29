@@ -31,7 +31,7 @@ Você não precisa contratar nada novo. Vamos colocar este site rodando "ao lado
 
 3. Defina a chave da API (copie e cole esse comando inteiro):
    ```bash
-   export REPLICATE_API_TOKEN=r8_A7Bg4F0kY9bBIPDuGVQpFmLb6Z4ulGk0cpB7h
+   export REPLICATE_API_TOKEN=SEU_TOKEN_REPLICATE_AQUI
    ```
 
 4. Ligue o sistema com o Docker:
