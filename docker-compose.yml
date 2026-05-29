@@ -1,11 +1,19 @@
-version: '3.8'
 services:
   web:
     build: .
+    image: cobra-enhance
     container_name: 8k-enhance
-    ports:
-      - "3010:3000"
+    restart: unless-stopped
     environment:
       - NODE_ENV=production
       - REPLICATE_API_TOKEN=${REPLICATE_API_TOKEN}
-    restart: unless-stopped
+      - ENHANCE_PASSWORD=${ENHANCE_PASSWORD}
+      - ENHANCE_SESSION_SECRET=${ENHANCE_SESSION_SECRET}
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - enhance_proxy
+
+networks:
+  enhance_proxy:
+    name: enhance_proxy
